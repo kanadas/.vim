@@ -76,9 +76,9 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/global_ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " start NERDTree on start-up and focus active window
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Syntastic recommended configuration
 set statusline+=%#warningmsg#

@@ -51,7 +51,7 @@ set viminfo='100,f1
 " non-typed comments
 set lazyredraw
 
-
+au BufRead,BufNewFile *.asm set filetype=nasm
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 " set the runtime path to include Vundle and initialize

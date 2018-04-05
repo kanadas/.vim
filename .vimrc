@@ -75,7 +75,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'lervag/vimtex'
-
+Plugin 'xuhdev/vim-latex-live-preview'
 " end plugin definitions
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -51,7 +51,15 @@ set viminfo='100,f1
 " non-typed comments
 set lazyredraw
 
+" map pl spellchecking to <F6>
+map <F6> :set spell! spelllang=pl<CR>
+
 au BufRead,BufNewFile *.asm set filetype=nasm
+
+" Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 " set the runtime path to include Vundle and initialize
@@ -66,6 +74,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'lervag/vimtex'
 
 " end plugin definitions
 call vundle#end()            " required
@@ -88,3 +97,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Syntastic asm configuration
+let g:syntastic_nasm_checkers = ['nasm']
+let g:syntastic_nasm_nasm_args = ['-f elf64']
+
+" vimtex configuration
+" default compiler is latexmk
+"let g:vimtex_compiler_method = 'latexrun'
+if !exists('g:ycm_semantic_triggers')
+	let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
